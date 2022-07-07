@@ -6,6 +6,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.3.0] - 2019-05-26
+From release [2.3.0](https://github.com/Infrastrukturait/ansible-terraform-dynamic-inventory/releases/tag/v2.3.0) this project is maintained by  by [Infrastruktura.IT](). 
+with motivation to make it work with python3 according to [ansible <= 2.5](https://docs.ansible.com/ansible/latest/reference_appendices/python_3_support.html).
+
+
+### Fixed
+- force to use python3 on shebang
+- remove encoding argument from `json.loads` according to issue [#19](https://github.com/nbering/terraform-inventory/issues/19)
+
+
 ## [2.2.0] - 2019-05-26
 ### Added
 - Respect `variable_priority`, added in providers releases [0.0.6](https://github.com/nbering/terraform-provider-ansible/releases/tag/v0.0.6)/[1.0.2](https://github.com/nbering/terraform-provider-ansible/releases/tag/v1.0.2)
