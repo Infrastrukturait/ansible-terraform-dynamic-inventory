@@ -1,0 +1,47 @@
+{
+  "name": "Dynamic ansible inventory from tfstate",
+  "repo_url": "https://github.com/Infrastrukturait/ansible-terraform-dynamic-inventory",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": " Nicholas Bering",
+      "email": "bering.nicholas@gmail.com",
+      "github": "nbering",
+      "website": "https://nicholasbering.ca/"
+    },
+    {
+      "name": "Rafał Masiarek",
+      "email": "rafal@masiarek.pl",
+      "github": "rafalmasiarek",
+      "website": "https://masiarek.pl"
+    }
+  ],
+  "context": [
+  "An Ansible [dynamic inventory](http://docs.ansible.com/ansible/latest/intro_dynamic_inventory.html) script to process Terraform state and return",
+  "Ansible host data from [Terraform Provider for Ansible](https://github.com/nbering/terraform-provider-ansible/) host resources. See the",
+  "Terraform Provider for it's own installation and use.",
+  "\n## Prologue",
+  "### Why a Fork?",
+  "This is for from [nbering/terraform-inventory](https://github.com/nbering/terraform-inventory) because it does not appear to be maintained, and I wanted to add support to",
+  "python3 to make it work with [ansible <= 2.5](https://docs.ansible.com/ansible/latest/reference_appendices/python_3_support.html).",
+  "\n## Usage",
+  "Copy the [terraform.py](./terraform.py) script file to a location on your system. Ansible's own documentation suggests the location `/etc/ansible/terraform.py`,",
+  "but the particular location does not matter to the script. Ensure it has executable permissions (`chmod +x /etc/ansible/terraform.py`).",
+  "With your Ansible playbook and Terraform configuration in the same directory, run Ansible with the `-i` flag to set the inventory source.",
+  "```",
+  "$ ansible-playbook -i /etc/ansible/terraform.py playbook.yml",
+  "```",
+  "\n## Environment Variables",
+  "\n",
+  "### ANSIBLE\_TF\_BIN",
+  "\nOverride the path to the Terraform command executable. This is useful if you have multiple copies or versions installed and need to specify a specific binary.",
+  "The inventory script runs the `terraform state pull` command to fetch the Terraform state, so that remote state will be fetched seemlessly regardless of the backend configuration.",
+  "\n",
+  "### ANSIBLE\_TF\_DIR",
+  "\nSet the working directory for the `terraform` command when the scripts shells out to it. This is useful if you keep your terraform and ansible configuration in separate directories. Defaults to using the current working directory.",
+  "\n",
+  "### ANSIBLE\_TF\_WS\_NAME",
+  "\nSets the workspace for the `terraform` command when the scripts shells out to it, defaults to `default` workspace - if you don't use workspaces this is the one you'll be using.",
+  "\n",
+  ]
+}
